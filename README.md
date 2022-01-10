@@ -5,7 +5,7 @@
 Požadavky na reklamní systém probíhají přes HTTPS protokol a typu volání GET bez použití proxy. Dotaz na reklamní systém musí probíhat v reálném čase podle předem definovaných značek, které nastavuje operátor a v případě nahrazování TV breaků se řídí dle FTV Prima API a timestampu. Při nahrazování je nutné počítat s posunem podle typu přenosu a je nutné nastraně operátora sesynchronizovat. Součásti dotazu již musí být také dopředu známá celková délka reklamního breaku, předávána v parametru duration, na základě které reklamní systém vrátí odpovídající sadu reklamních spoty.  
 
 
-## Parametry dotazů a odpovědi reklamního serveru
+## Parametry dotazu a odpovědi reklamního serveru
 
 #### Dotaz na server
 
