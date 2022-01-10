@@ -1,4 +1,4 @@
-# Výdeje online reklamy u IPTV operátorů
+# Výdej online reklamy u IPTV operátorů
 
 #### Popis
 
