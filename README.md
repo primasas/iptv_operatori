@@ -2,7 +2,7 @@
 
 #### Popis
 
-Požadavky na reklamní systém probíhají přes HTTPS protokol a typu volání GET bez použití proxy. Dotaz na reklamní systém musí probíhat v reálném čase podle předem definovaných značek, které nastavuje operátor a v případě nahrazování TV breaků se řídí dle FTV Prima API a timestampu. Při nahrazování je nutné počítat s posunem podle typu přenosu a je nutné nastraně operátora sesynchronizovat. Součásti dotazu již musí být také dopředu známá celková délka reklamního breaku, předávána v parametru duration, na základě které reklamní systém vrátí odpovídající sadu reklamních spoty.  
+Požadavky na reklamní systém probíhají přes HTTPS protokol a typu volání GET bez použití proxy. Dotaz na reklamní systém musí probíhat v reálném čase podle předem definovaných značek, které nastavuje operátor a v případě nahrazování TV breaků se řídí dle FTV Prima API a timestampu. Při nahrazování je nutné počítat s posunem podle typu přenosu. Součásti dotazu již musí být také dopředu známá celková délka reklamního breaku, předávána v parametru duration, na základě které reklamní systém vrátí odpovídající sadu reklamních spoty. 
 
 
 ## Parametry dotazu a odpovědi reklamního serveru
@@ -65,13 +65,15 @@ The MID cookie supports HttpOnly and Secure flags
 | 429 Too Many Requests | When the server receives too many requests from a visitor. The response is sent until the condition subsides |
 | 500 Internal Server Error | When there is an uncategorized error. |
 
-## Formát odpovědireklamního systému - VAST 3.0
+## Formát odpovědi reklamního systému - VAST 3.0
 
 Odpověď reklamního systému je VAST 3.0 s multi AdPods. Zpracování jednotlivých videospotu na straně přehrávače musí odpovídat minimálně tomuto standardu. 
 
 ------
-
+#
+#
 #### Seznam parametrů reklamního dotazu
+#
 
 | Význam | Parametr | Hodnota | Popis |
 | ------ | ------ | ------ | ------ |
@@ -103,7 +105,7 @@ Odpověď reklamního systému je VAST 3.0 s multi AdPods. Zpracování jednotli
 
 #### Seznam názvu kanálu pro parametr site
 
-Duležité! - Kombinace názvů musí být předem definovány v reklamním systému. Nastavení použivaných názvů po dohodě s FTV Prima
+Duležité! - Kombinace názvů musí být předem definovány v reklamním systému. Nastavení použivaných názvů bude po dohodě s FTV Prima.
 
 | Kanál | Kombinace názvu operátoru a kanálu |
 | ------ | ------ |
