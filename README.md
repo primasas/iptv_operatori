@@ -65,15 +65,14 @@ The MID cookie supports HttpOnly and Secure flags
 | 429 Too Many Requests | When the server receives too many requests from a visitor. The response is sent until the condition subsides |
 | 500 Internal Server Error | When there is an uncategorized error. |
 
-## Formát odpovědi reklamního systému - VAST 3.0
+#### Formát odpovědi reklamního systému - VAST 3.0
 
 Odpověď reklamního systému je VAST 3.0 s multi AdPods. Zpracování jednotlivých videospotu na straně přehrávače musí odpovídat minimálně tomuto standardu. 
 
 ------
-#
-#
-#### Seznam parametrů reklamního dotazu
-#
+
+## Seznam parametrů reklamního dotazu
+
 
 | Význam | Parametr | Hodnota | Popis |
 | ------ | ------ | ------ | ------ |
