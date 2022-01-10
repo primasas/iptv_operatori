@@ -1,9 +1,11 @@
 # Výdeje online reklamy u IPTV operátorů
 
-Dotaz na reklamní systém musí probíhat v reálném čase podle předem definovaných značek. Součásti dotazu již musí být dopředu známá celková délka reklamního breaku předávána v parametru duration na základě kterého reklamní systém vrátí odpovídající sadu reklamních spoty.
+#### Popis
+
+Požadavky na reklamní systém probíhají přes HTTPS protokol a typu volání GET bez použití proxy. Dotaz na reklamní systém musí probíhat v reálném čase podle předem definovaných značek, které nastavuje operátor, v případě nahrazování TV breaků se řídí dle FTV Prima API a timestampu. Při nahrazování je nutné počítat s posunem podle typu přenosu a je nutné nastraně operátora sesynchronizovat. Součásti dotazu již musí být také dopředu známá celková délka reklamního breaku, předávána v parametru duration, na základě které reklamní systém vrátí odpovídající sadu reklamních spoty.  
 
 
-## Technické parametry dotazu na reklamní systém:
+## Parametry dotazů a odpovědi reklamního serveru
 
 #### Dotaz na server
 
@@ -12,6 +14,7 @@ Dotaz na reklamní systém musí probíhat v reálném čase podle předem defin
 | Protokol | HTTPS |
 | Typ | GET |
 | Síť | Internet - bez proxy |
+
 
 #### Odpověď serveru
 
@@ -62,16 +65,18 @@ The MID cookie supports HttpOnly and Secure flags
 | 429 Too Many Requests | When the server receives too many requests from a visitor. The response is sent until the condition subsides |
 | 500 Internal Server Error | When there is an uncategorized error. |
 
+## Formát odpovědireklamního systému - VAST 3.0
 
-## Parametry dotazu na reklamní systém:
+Odpověď reklamního systému je VAST 3.0 s multi AdPods. Zpracování jednotlivých videospotu na straně přehrávače musí odpovídat minimálně tomuto standardu. 
 
-Odpověď reklamního systému je VAST 3 s multi AdPods.
+------
 
-
-#### Seznam parametrů
+#### Seznam parametrů reklamního dotazu
 
 | Význam | Parametr | Hodnota | Popis |
 | ------ | ------ | ------ | ------ |
+| Doména | - | a.iprima.cz | doména pro provolání dotazu |
+| Typ Serveru | - | dserver | určení výdejového serveru |
 | Kanál | site | Nazevoperatora_KANAL | predefinovaný, složený z názvu operátora a názvu kanálu |
 | Zařízení | section | smart_tv,mobile,web_desktop, web_mobile, mobile_tablet,web_tablet | určení zařízení |
 | Typ reklamní pozice | area | preroll-1, midroll-1, midroll-2 | určení typu breaku |
@@ -116,9 +121,9 @@ Duležité! - Kombinace názvů musí být předem definovány v reklamním syst
 
 #### Zpracování videospotu dle standardu VAST 3
 
-Zpracování reklamy na straně přehrávače musí být dle standardu iab VAST 3.0 - [Links] https://www.iab.com/wp-content/uploads/2015/06/VASTv3_0.pdf
+Zpracování reklamy na straně přehrávače musí být dle standardu iab VAST 3.0 - https://www.iab.com/wp-content/uploads/2015/06/VASTv3_0.pdf
 
 
 #### Příklad dotazu na reklamní systém
 
-[Links] https://a.iprima.cz/dserver/site=Nazevoperatora_KANAL/section=smart_tv/area=preroll-1/size=spot,preroll/duration=360/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=clipid,productid/showname=nazev_poradu/viewid=1234567890/random=1234567890/mid=nazevoperatora_hashID/seg1=/seg2==/operator=Nazevoperatora/variant=varianta2/broadcasting=vosdalt3/clipid=rE49300/productid=/skip=1/gdpr=1/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/
+ https://a.iprima.cz/dserver/site=Nazevoperatora_KANAL/section=smart_tv/area=preroll-1/size=spot,preroll/duration=360/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=clipid,productid/showname=nazev_poradu/viewid=1234567890/random=1234567890/mid=nazevoperatora_hashID/seg1=/seg2==/operator=Nazevoperatora/variant=varianta2/broadcasting=vosdalt3/clipid=rE49300/productid=/skip=1/gdpr=1/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/
