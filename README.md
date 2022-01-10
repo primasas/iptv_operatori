@@ -1,4 +1,4 @@
-# Technické parametry reklamního volání pro výdej online reklamy u IPTV operátorů
+# Technické parametry výdej online reklamy u IPTV operátorů
 
 Dotaz na reklamní systém musí probíhat v reálném čase podle předem definovaných značek pro přehrání v požadovaném čase. Součásti dotazu již musí být dopředu známá celková délka reklamního breaku předávána v parametru duration, na základě která reklamní systém vrátí odpovídající reklamní spoty.
 
