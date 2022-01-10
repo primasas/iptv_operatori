@@ -1,6 +1,6 @@
 # Výdeje online reklamy u IPTV operátorů
 
-Dotaz na reklamní systém musí probíhat v reálném čase podle předem definovaných značek pro přehrání v požadovaném čase. Součásti dotazu již musí být dopředu známá celková délka reklamního breaku předávána v parametru duration, na základě která reklamní systém vrátí odpovídající reklamní spoty.
+Dotaz na reklamní systém musí probíhat v reálném čase podle předem definovaných značek. Součásti dotazu již musí být dopředu známá celková délka reklamního breaku předávána v parametru duration na základě kterého reklamní systém vrátí odpovídající sadu reklamních spoty.
 
 
 ## Technické parametry dotazu na reklamní systém:
@@ -101,7 +101,7 @@ Odpověď reklamního systému je VAST 3 s multi AdPods.
 Duležité! - Kombinace názvů musí být předem definovány v reklamním systému. Nastavení použivaných názvů po dohodě s FTV Prima
 
 | Kanál | Kombinace názvu operátoru a kanálu |
-| ------ | ------ | ------ | ------ |
+| ------ | ------ |
 | PRIMA | Nazevoperatora_PRIMA |
 | COOL | Nazevoperatora_COOL |
 | MAX | Nazevoperatora_MAX |
@@ -116,9 +116,9 @@ Duležité! - Kombinace názvů musí být předem definovány v reklamním syst
 
 #### Zpracování videospotu dle standardu VAST 3
 
-Zpracování reklamy na straně přehrávače musí být dle standardu iab VAST 3.0 - `<link>` : https://www.iab.com/wp-content/uploads/2015/06/VASTv3_0.pdf
+Zpracování reklamy na straně přehrávače musí být dle standardu iab VAST 3.0 - [Links] https://www.iab.com/wp-content/uploads/2015/06/VASTv3_0.pdf
 
 
 #### Příklad dotazu na reklamní systém
 
-`<link>` : https://a.iprima.cz/dserver/site=Nazevoperatora_KANAL/section=smart_tv/area=preroll-1/size=spot,preroll/duration=[duration]/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=clipid,productid/showname=nazev_poradu/viewid=[random]/random=[random]/mid=[ nazevoperatora_hashID ]/seg1=/seg2==/operator=Nazevoperatora/variant=varianta2/broadcasting=vosdalt3/clipid=rE49300/productid=/skip=1/gdpr=1/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/
+[Links] https://a.iprima.cz/dserver/site=Nazevoperatora_KANAL/section=smart_tv/area=preroll-1/size=spot,preroll/duration=360/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=clipid,productid/showname=nazev_poradu/viewid=1234567890/random=1234567890/mid=nazevoperatora_hashID/seg1=/seg2==/operator=Nazevoperatora/variant=varianta2/broadcasting=vosdalt3/clipid=rE49300/productid=/skip=1/gdpr=1/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/
