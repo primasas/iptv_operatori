@@ -106,7 +106,7 @@ Odpověď reklamního systému je VAST 3.0 s multi AdPods. Zpracování jednotli
 
 Duležité! - Kombinace názvů musí být předem definovány v reklamním systému. Nastavení použivaných názvů bude po dohodě s FTV Prima.
 
-| Kanál | Kombinace názvu operátoru a kanálu |
+| Kanál | Kombinace názvu operátora a kanálu |
 | ------ | ------ |
 | PRIMA | Nazevoperatora_PRIMA |
 | COOL | Nazevoperatora_COOL |
