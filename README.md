@@ -80,7 +80,7 @@ Odpověď reklamního systému je VAST 3.0 s multi AdPods. Zpracování jednotli
 | Typ Serveru | - | dserver | určení výdejového serveru |
 | Kanál | site | Nazevoperatora_KANAL | predefinovaný, složený z názvu operátora a názvu kanálu |
 | Zařízení | section | smart_tv,mobile,web_desktop, web_mobile, mobile_tablet,web_tablet | určení zařízení |
-| Typ reklamní pozice | area | preroll-1, midroll-1, midroll-2 | určení typu breaku |
+| Typ reklamní pozice | area | preroll-1, midroll-1, midroll-2, midroll-3, midroll-4 | určení typu breaku |
 | Reklamní typ | size | kombinace - spot,preroll  / spot,midroll | fixni hodnota |
 | Délka breaku | duration | 30, 360, dle délky tv breaku | fixní hodnota dle typu, při nahrazování simulcastu dle délky tv breaku |
 | Validace na VAST 3 | format | validvast3 | fixní hodnota |
@@ -127,17 +127,17 @@ Zpracování reklamy na straně přehrávače musí být dle standardu iab VAST 
 
 ------
 
-## Rozdělení volání podle variant a zařízení
+## Rozdělení podle variant a zařízení
 
 
 ### Varianta 2
 
 | Typ | TV | Mobile |
 | ------ | ------ | ------ |
-| Živé vysílání | - | max 12 minut do hodiny / 3.5 minut nepřeskočitelné |
-| Start-over | - | max 12 minut do hodiny / 3.5 minut nepřeskočitelné |
-| VOSDAL T3 | - | 1 minuta do hodiny / nepřeskočitelné |
-| T4-T7 | max 12 minut do hodiny / 3.5 minut nepřeskočitelné | max 12 minut do hodiny / 3.5 minut nepřeskočitelné |
+| Živé vysílání | - | max 12 minut do hodiny / 3.5 minuty nepřeskočitelné |
+| Start-over | - | max 12 minut do hodiny / 3.5 minuty nepřeskočitelné |
+| VOSDAL T3 | 1 minuta do hodiny / nepřeskočitelné |max 12 minut do hodiny / 3.5 minuty nepřeskočitelné |
+| T4-T7 | max 12 minut do hodiny / 3.5 minuty nepřeskočitelné | max 12 minut do hodiny / 3.5 minuty nepřeskočitelné |
 
 ### Varianta 3
 
@@ -145,7 +145,25 @@ Zpracování reklamy na straně přehrávače musí být dle standardu iab VAST 
 | ------ | ------ | ------ |
 | Živé vysílání | - | max 12 minut do hodiny / nepřeskočitelné |
 | Start-over | - | max 12 minut do hodiny / nepřeskočitelné |
-| TS4-T7 | max 12 minut do hodiny / 3.5 minut nepřeskočitelné | max 12 minut do hodiny / 3.5 minut nepřeskočitelné |
+| TS4-T7 | max 12 minut do hodiny / 3.5 minuty nepřeskočitelné | max 12 minut do hodiny / 3.5 minuty nepřeskočitelné |
 
 
+## Rozdělení podle typu pozice a délky ( duration )
 
+
+### Varianta 2
+
+| Typ | TV | Mobile |
+| ------ | ------ | ------ |
+| Živé vysílání | - | 2x midroll, duration 360 / 3.5 minuty nepřeskočitelné |
+| Start-over | - | 2x midroll, duration 360 / 3.5 minuty nepřeskočitelné |
+| VOSDAL T3 | 1x preroll a 1x midroll, duration 30 / nepřeskočitelné | 2 až 4 midrolls s duration odpovídající 720 sekund do hodiny |
+| T4-T7 | max 12 minut do hodiny / 3.5 minuty nepřeskočitelné |  2 až 4 midrolls s duration odpovídající 720 sekund do hodiny  / 3.5 minuty nepřeskočitelné|
+
+### Varianta 3
+
+| Typ | TV | Mobile |
+| ------ | ------ | ------ |
+| Živé vysílání | - | 2x midroll, duration 360 / 3.5 minuty nepřeskočitelné |
+| Start-over | - | 2x midroll, duration 360 / 3.5 minuty nepřeskočitelné |
+| TS4-T7 |  2 až 4 midrolls s duration odpovídající 720 sekund do hodiny / 3.5 minuty nepřeskočitelné |  2 až 4 midrolls s duration odpovídající 720 sekund do hodiny / 3.5 minuty nepřeskočitelné |
