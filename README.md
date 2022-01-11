@@ -102,7 +102,7 @@ Odpověď reklamního systému je VAST 3.0 s multi AdPods. Zpracování jednotli
 | Souhlas | consent | tcstring base 64 | Operátor předá souhlas od uživatele dle TFC v2 - formát tcString |
 
 
-#### Seznam názvu kanálu pro parametr site
+#### Seznam názvů kanálu pro parametr site
 
 Duležité! - Kombinace názvů musí být předem definovány v reklamním systému. Nastavení použivaných názvů bude po dohodě s FTV Prima.
 
@@ -125,6 +125,27 @@ Duležité! - Kombinace názvů musí být předem definovány v reklamním syst
 Zpracování reklamy na straně přehrávače musí být dle standardu iab VAST 3.0 - https://www.iab.com/wp-content/uploads/2015/06/VASTv3_0.pdf
 
 
-#### Příklad dotazu na reklamní systém
+------
 
- https://a.iprima.cz/dserver/site=Nazevoperatora_KANAL/section=smart_tv/area=preroll-1/size=spot,preroll/duration=360/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=clipid,productid/showname=nazev_poradu/viewid=1234567890/random=1234567890/mid=nazevoperatora_hashID/seg1=/seg2==/operator=Nazevoperatora/variant=varianta2/broadcasting=vosdalt3/clipid=rE49300/productid=/skip=1/gdpr=1/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/
+## Rozdělení volání podle variant a zařízení
+
+
+### Varianta 2
+
+| Typ | TV | Mobile |
+| ------ | ------ | ------ |
+| Živé vysílání | - | max 12 minut do hodiny / 3.5 minut nepřeskočitelné |
+| Start-over | - | max 12 minut do hodiny / 3.5 minut nepřeskočitelné |
+| VOSDAL T3 | - | 1 minuta do hodiny / nepřeskočitelné |
+| T4-T7 | max 12 minut do hodiny / 3.5 minut nepřeskočitelné | max 12 minut do hodiny / 3.5 minut nepřeskočitelné |
+
+### Varianta 3
+
+| Typ | TV | Mobile |
+| ------ | ------ | ------ |
+| Živé vysílání | - | max 12 minut do hodiny / nepřeskočitelné |
+| Start-over | - | max 12 minut do hodiny / nepřeskočitelné |
+| TS4-T7 | max 12 minut do hodiny / 3.5 minut nepřeskočitelné | max 12 minut do hodiny / 3.5 minut nepřeskočitelné |
+
+
+
