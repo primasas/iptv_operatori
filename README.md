@@ -158,7 +158,7 @@ Zpracování reklamy na straně přehrávače musí být dle standardu iab VAST 
 | Živé vysílání | - | 2x midroll, duration 360 / 3.5 minuty nepřeskočitelné |
 | Start-over | - | 2x midroll, duration 360 / 3.5 minuty nepřeskočitelné |
 | VOSDAL T3 | 1x preroll a 1x midroll, duration 30 / nepřeskočitelné | 2 až 4 midrolls s duration odpovídající 720 sekund do hodiny |
-| T4-T7 | max 12 minut do hodiny / 3.5 minuty nepřeskočitelné |  2 až 4 midrolls s duration odpovídající 720 sekund do hodiny  / 3.5 minuty nepřeskočitelné|
+| T4-T7 |  2 až 4 midrolls s duration odpovídající 720 sekund do hodiny / 3.5 minuty nepřeskočitelné |  2 až 4 midrolls s duration odpovídající 720 sekund do hodiny  / 3.5 minuty nepřeskočitelné |
 
 ### Varianta 3
 
