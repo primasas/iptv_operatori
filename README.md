@@ -77,7 +77,7 @@ Odpověď reklamního systému je VAST 3.0 s multi AdPods. Zpracování jednotli
 | Význam | Parametr | Hodnota | Popis |
 | ------ | ------ | ------ | ------ |
 | Doména | - | a.iprima.cz | doména pro provolání dotazu |
-| Typ Serveru | - | dserver | určení výdejového serveru |
+| Typ serveru | - | dserver | určení výdejového serveru |
 | Kanál | site | Nazevoperatora_KANAL | predefinovaný, složený z názvu operátora a názvu kanálu |
 | Zařízení | section | smart_tv,mobile,web_desktop, web_mobile, mobile_tablet,web_tablet | určení zařízení |
 | Typ reklamní pozice | area | preroll-1, midroll-1, midroll-2, midroll-3, midroll-4 | určení typu breaku |
