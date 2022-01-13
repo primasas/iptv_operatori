@@ -88,6 +88,7 @@ Odpověď reklamního systému je VAST 3.0 s multi AdPods. Zpracování jednotli
 | Interní deklarace pro S2S | SUPERTAG | InstreamVideo | fixní hodnota |
 | Doplňující data k obsahu | keyword | porad,typ | multivalue, alfanumeric, oddělovač čárka |
 | Název pořadu | showname | nazev_poradu | z api Prima, ošetření formátu bez diakritiky, odstranění speciálních znaků, mezera, pomlčka je nahrazena podtržítkem |
+| Nastavení zvuku| mute | 1 / 0 | předání informace, jesti má přehrávač při startu reklamního blocku aktivní zvuk |
 | Označení breaku | viewid | random hodnota | hash, 10ti místné číslo , unikátní v rámci volání breaku, zamezení duplicity spotů |
 | Cachebuster | random | random hodnota | hash, 10ti místné číslo  |
 | Device id  | mid | nazevoperatora_hashID | pokud má operátor vlastní určtení unikátního zařízení, složený z názvu operátora a zahashovaného id zařízení |
