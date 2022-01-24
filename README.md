@@ -126,6 +126,16 @@ Duležité! - Kombinace názvů musí být předem definovány v reklamním syst
 Zpracování reklamy na straně přehrávače musí být dle standardu iab VAST 3.0 - https://www.iab.com/wp-content/uploads/2015/06/VASTv3_0.pdf
 
 
+#### Video formát online reklamy
+|  |  |
+| ------ | ------ |
+| Rozlišení | aspekt 16:9 (PAL Widescreen, anamorfní, bez čtvercovych pixelu) Max. bitrate 6 Mbps |
+|  | 1280x720 @ 3000 kbps, 640x360 @ 750 kbps, 1024x576 @ 1500 kbps, 320x180 @ 450 kbps |
+| Formát | MP4 (h.264), M3U8, WEBM |
+| Délký spotů | 6s, 15s, 20s, 25s, 30s |
+| Zvuk | AAC, 48 kHz - bez uměle zesíleného zvuku (cca 16,5 dB) Zvukový mix musí respektovat doporučení EBU R128, zvuková úroveň pořadu musí být normalizovánana -23 LUFS v integračním módu měření, maximální povolená hodnota modulace je -1 dBTP |
+
+
 ------
 
 ## Rozdělení podle variant a zařízení
