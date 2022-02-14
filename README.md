@@ -86,8 +86,8 @@ Odpověď reklamního systému je VAST 3.0 s multi AdPods. Zpracování jednotli
 | Validace na VAST 3 | format | validvast3 | fixní hodnota |
 | Nastavení formátu | formatmt | application%2Fxml | fixní hodnota |
 | Interní deklarace pro S2S | SUPERTAG | InstreamVideo | fixní hodnota |
-| Doplňující data k obsahu | keyword | porad,typ | multivalue, alfanumeric, oddělovač čárka |
-| Název pořadu | showname | nazev_poradu | z api Prima, ošetření formátu bez diakritiky, odstranění speciálních znaků, mezera, pomlčka je nahrazena podtržítkem |
+| Doplňující data k obsahu | keyword | z API: name, Clip_id | multivalue, alfanumeric, oddělovač čárka |
+| Název pořadu | showname | nazev_poradu | z api Prima, ošetření formátu bez diakritiky, odstranění speciálních znaků, mezera, pomlčka je nahrazena podtržítkem, pouze mala písmena |
 | Nastavení zvuku| mute | 1 / 0 | předání informace, jesti má přehrávač při startu reklamního blocku aktivní zvuk |
 | Označení breaku | viewid | random hodnota | hash, 10ti místné číslo , unikátní v rámci volání breaku, zamezení duplicity spotů |
 | Cachebuster | random | random hodnota | hash, 10ti místné číslo  |
