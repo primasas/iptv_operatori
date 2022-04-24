@@ -200,8 +200,6 @@ Zpracování reklamy na straně přehrávače musí být dle standardu iab VAST 
 
 
 
-```mermaid
-%% Example with selection of syntaxes
         gantt
         dateFormat  YYYY-MM-DD
         title Adding GANTT diagram functionality to mermaid
@@ -229,4 +227,3 @@ Zpracování reklamy na straně přehrávače musí být dle standardu iab VAST 
         Describe gantt syntax               :after doc1, 3d
         Add gantt diagram to demo page      : 20h
         Add another diagram to demo page    : 48h
-​```
