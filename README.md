@@ -121,9 +121,9 @@ Duležité! - Kombinace názvů musí být předem definovány v reklamním syst
 | SHOW | Nazevoperatora_SHOW |
 
 
-#### Zpracování videospotu dle standardu VAST 3
+#### Zpracování videospotu dle standardu VAST 4.2
 
-Zpracování reklamy na straně přehrávače musí být dle standardu iab VAST 3.0 - https://www.iab.com/wp-content/uploads/2015/06/VASTv3_0.pdf
+Zpracování reklamy na straně přehrávače musí být dle standardu iab VAST 4.2 - https://iabtechlab.com/wp-content/uploads/2019/06/VAST_4.2_final_june26.pdf
 
 
 #### Video formát online reklamy
@@ -136,65 +136,14 @@ Zpracování reklamy na straně přehrávače musí být dle standardu iab VAST 
 | Zvuk | AAC, 48 kHz - bez uměle zesíleného zvuku (cca 16,5 dB) Zvukový mix musí respektovat doporučení EBU R128, zvuková úroveň pořadu musí být normalizovánana -23 LUFS v integračním módu měření, maximální povolená hodnota modulace je -1 dBTP |
 
 
-------
-
-## Rozdělení podle variant a zařízení
-
-
-### Varianta 2
-
-| Typ | TV | Mobile |
-| ------ | ------ | ------ |
-| Živé vysílání | - | max 12 minut do hodiny / 3.5 minuty nepřeskočitelné |
-| Start-over | - | max 12 minut do hodiny / 3.5 minuty nepřeskočitelné |
-| VOSDAL T3 | 1 minuta do hodiny / nepřeskočitelné |max 12 minut do hodiny / 3.5 minuty nepřeskočitelné |
-| T4-T7 | max 12 minut do hodiny / 3.5 minuty nepřeskočitelné | max 12 minut do hodiny / 3.5 minuty nepřeskočitelné |
-
-### Varianta 3
-
-| Typ | TV | Mobile |
-| ------ | ------ | ------ |
-| Živé vysílání | - | max 12 minut do hodiny / nepřeskočitelné |
-| Start-over | - | max 12 minut do hodiny / nepřeskočitelné |
-| TS4-T7 | max 12 minut do hodiny / 3.5 minuty nepřeskočitelné | max 12 minut do hodiny / 3.5 minuty nepřeskočitelné |
-
-
-## Rozdělení podle typu pozice a délky ( duration )
-
-
-### Varianta 2
-
-| Typ | TV | Mobile |
-| ------ | ------ | ------ |
-| Živé vysílání | - | 2x midroll, duration 360 / 3.5 minuty nepřeskočitelné |
-| Start-over | - | 2x midroll, duration 360 / 3.5 minuty nepřeskočitelné |
-| VOSDAL T3 | 1x preroll a 1x midroll, duration 30 / nepřeskočitelné | 2 až 4 midrolls s duration odpovídající 720 sekund do hodiny |
-| T4-T7 |  2 až 4 midrolls s duration odpovídající 720 sekund do hodiny / 3.5 minuty nepřeskočitelné |  2 až 4 midrolls s duration odpovídající 720 sekund do hodiny  / 3.5 minuty nepřeskočitelné |
-
-### Varianta 3
-
-| Typ | TV | Mobile |
-| ------ | ------ | ------ |
-| Živé vysílání | - | 2x midroll, duration 360 / 3.5 minuty nepřeskočitelné |
-| Start-over | - | 2x midroll, duration 360 / 3.5 minuty nepřeskočitelné |
-| TS4-T7 |  2 až 4 midrolls s duration odpovídající 720 sekund do hodiny / 3.5 minuty nepřeskočitelné |  2 až 4 midrolls s duration odpovídající 720 sekund do hodiny / 3.5 minuty nepřeskočitelné |
-
 
 ## Příklady volání pozic
 
-#### Varianta 2 - TV - VOSDAL T3 - preroll
+#### Preroll
 
 `https://a.iprima.cz/dserver/site=Nazevoperatora_KANAL/section=smart_tv/area=preroll-1/size=spot,preroll/duration=30/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=clipid,productid/showname=nazev_poradu/viewid=[random]/random=[random]/operator=Nazevoperatora/variant=varianta2/broadcasting=vosdalt3/clipid=rE49300/productid=/skip=1/gdpr=1/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/`
 
-#### Varianta 2 - TV - VOSDAL T3 - midroll
+#### Midroll
 
 `https://a.iprima.cz/dserver/site=Nazevoperatora_KANAL/section=smart_tv/area=midroll-1/size=spot,midroll/duration=30/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=clipid,productid/showname=nazev_poradu/viewid=[random]/random=[random]/operator=Nazevoperatora/variant=varianta2/broadcasting=vosdalt3/clipid=rE49300/productid=/skip=1/gdpr=1/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/`
-
-#### Varianta 2 - Mobile - živé vysílání - midroll
-
-`https://a.iprima.cz/dserver/site=Nazevoperatora_KANAL/section=mobile/area=midroll-1/size=spot,midroll/duration=360/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=clipid,productid/showname=nazev_poradu/viewid=[random]/random=[random]/operator=Nazevoperatora/variant=varianta2/broadcasting=livestream/clipid=rE49300/productid=/skip=1/gdpr=1/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/`
-
-#### Varianta 2 - Mobile - VOSDAL T3 - midroll
-
-`https://a.iprima.cz/dserver/site=Nazevoperatora_KANAL/section=mobile/area=midroll-1/size=spot,midroll/duration=360/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=clipid,productid/showname=nazev_poradu/viewid=[random]/random=[random]/operator=Nazevoperatora/variant=varianta2/broadcasting=vosdalt3/clipid=rE49300/productid=/skip=1/gdpr=1/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/`
 
