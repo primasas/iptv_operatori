@@ -73,34 +73,35 @@ Odpověď reklamního systému je VAST 3.0 s multi AdPods. Zpracování jednotli
 
 ## Seznam parametrů reklamního dotazu
 
+| Base url |
+| -------- |
+| http(s)://a.iprima.cz/dserver/ |
+
 
 | Význam | Parametr | Hodnota | Popis |
 | ------ | ------ | ------ | ------ |
-| Doména | - | a.iprima.cz | doména pro provolání dotazu |
-| Typ serveru | - | dserver | určení výdejového serveru |
+| Název operátora | operator | Nazevoperatora | predefinovaný, alfanumeric |
 | Kanál | site | Nazevoperatora_KANAL | predefinovaný, složený z názvu operátora a názvu kanálu |
-| Zařízení | section | smart_tv,mobile,web_desktop, web_mobile, mobile_tablet,web_tablet | určení zařízení |
-| Typ reklamní pozice | area | preroll-1, midroll-1, midroll-2, midroll-3, midroll-4 | určení typu breaku |
+| Zařízení | section | smart_tv, mobile, web_desktop, web_mobile, mobile_tablet, web_tablet | určení zařízení |
+| Typ reklamní pozice | area | preroll-1, preroll-7, midroll-1 | určení typu breaku |
 | Reklamní typ | size | kombinace - spot,preroll  / spot,midroll | fixni hodnota |
-| Délka breaku | duration | 30, 360, dle délky tv breaku | fixní hodnota dle typu, při nahrazování simulcastu dle délky tv breaku |
+| Délka breaku | duration | 30, 150, 135, 105, 90, dle délky tv breaku | fixní hodnota dle typu, při nahrazování simulcastu dle délky tv breaku |
 | Validace na VAST 3 | format | validvast3 | fixní hodnota |
 | Nastavení formátu | formatmt | application%2Fxml | fixní hodnota |
 | Interní deklarace pro S2S | SUPERTAG | InstreamVideo | fixní hodnota |
 | Doplňující data k obsahu | keyword | z API: name, Clip_id | multivalue, alfanumeric, oddělovač čárka |
 | Název pořadu | showname | nazev_poradu | z api Prima, ošetření formátu bez diakritiky, odstranění speciálních znaků, mezera, pomlčka je nahrazena podtržítkem, pouze mala písmena |
-| Nastavení zvuku| mute | 1 / 0 | předání informace, jesti má přehrávač při startu reklamního blocku aktivní zvuk |
-| Označení breaku | viewid | random hodnota | hash, 10ti místné číslo , unikátní v rámci volání breaku, zamezení duplicity spotů |
 | Cachebuster | random | random hodnota | hash, 10ti místné číslo  |
+| Označení breaku | viewid | random hodnota | hash, 10ti místné číslo , unikátní v rámci volání breaku, zamezení duplicity spotů |
 | Device id  | mid | nazevoperatora_hashID | pokud má operátor vlastní určtení unikátního zařízení, složený z názvu operátora a zahashovaného id zařízení |
 | Inzertní segmenty | seg1 až segN | - | hodnota bude doplněna po vzájemné konzultaci |
-| Název operátora | operator | Nazevoperatora | predefinovaný, alfanumeric |
-| Typ varianty | variant | varianta2,varianta3 | určení typu varianty, podle které se účtuje |
-| Typ vysílání | broadcasting | livestream,startover,vosdalt3,ts47,vosdalt7 | určení vysílacího modelu |
+| Typ varianty | variant | varianta2, varianta3 | určení typu varianty, podle které se účtuje |
+| Typ vysílání | broadcasting | livestream, startover, vosdalt3,ts47 | určení vysílacího modelu |
 | Clip id | clipid | - | interní párovací číslo média - rE37563 |
 | Product id | productid | - | unikátní výrobní číslo |
-| Skippable | skip | 1 / 0 | z api Prima |
-| Aktivace GDPR | gdpr | 1 | fixní hodnota |
 | Souhlas | consent | tcstring base 64 | Operátor předá souhlas od uživatele dle TFC v2 - formát tcString |
+| Aktivace GDPR | gdpr | 1 / 0 | fixní hodnota | Pokud operátor není schopen předat souhlas, hodnota musí být 0.
+
 
 
 #### Seznam názvů kanálu pro parametr site
@@ -139,11 +140,22 @@ Zpracování reklamy na straně přehrávače musí být dle standardu iab VAST 
 
 ## Příklady volání pozic
 
+### TV zařízení VOSDAL-T3
 #### Preroll
 
-`https://a.iprima.cz/dserver/site=Nazevoperatora_KANAL/section=smart_tv/area=preroll-1/size=spot,preroll/duration=30/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=clipid,productid/showname=nazev_poradu/viewid=[random]/random=[random]/operator=Nazevoperatora/variant=varianta2/broadcasting=vosdalt3/clipid=rE49300/productid=/skip=1/gdpr=1/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/`
+`https://a.iprima.cz/dserver/operator=Nazevoperatora/site=Nazevoperatora_KANAL/section=smart_tv/area=preroll-1/size=spot,preroll/duration=30/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=clipid,productid/showname=nazev_poradu/random=1234567890/viewid=1234567890/variant=varianta2/broadcasting=vosdalt3/clipid=clipid/productid=productid/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/gdpr=1/`
 
 #### Midroll
 
-`https://a.iprima.cz/dserver/site=Nazevoperatora_KANAL/section=smart_tv/area=midroll-1/size=spot,midroll/duration=30/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=clipid,productid/showname=nazev_poradu/viewid=[random]/random=[random]/operator=Nazevoperatora/variant=varianta2/broadcasting=vosdalt3/clipid=rE49300/productid=/skip=1/gdpr=1/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/`
+`https://a.iprima.cz/dserver/operator=Nazevoperatora/site=Nazevoperatora_KANAL/section=smart_tv/area=midroll-1/size=spot,midroll/duration=150/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=clipid,productid/showname=nazev_poradu/random=1234567890/viewid=1234567890/variant=varianta2/broadcasting=vosdalt3/clipid=clipid/productid=productid/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/gdpr=1/`
 
+
+
+### TV zařízení TS 4-7
+#### Preroll
+
+`https://a.iprima.cz/dserver/operator=Nazevoperatora/site=Nazevoperatora_KANAL/section=smart_tv/area=preroll-1/size=spot,preroll/duration=30/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=clipid,productid/showname=nazev_poradu/random=1234567890/viewid=1234567890/variant=varianta2/broadcasting=ts47/clipid=clipid/productid=productid/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/gdpr=1/`
+
+#### Midroll
+
+`https://a.iprima.cz/dserver/operator=Nazevoperatora/site=Nazevoperatora_KANAL/section=smart_tv/area=midroll-1/size=spot,midroll/duration=105/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=clipid,productid/showname=nazev_poradu/random=1234567890/viewid=1234567890/variant=varianta2/broadcasting=ts47/clipid=clipid/productid=productid/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/gdpr=1/`
