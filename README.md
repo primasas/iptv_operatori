@@ -83,9 +83,9 @@ Odpověď reklamního systému je VAST 4.2 s multi AdPods. Zpracování jednotli
 | Název operátora | operator | Nazevoperatora | predefinovaný, alfanumeric |
 | Kanál | site | Nazevoperatora_KANAL | predefinovaný, složený z názvu operátora a názvu kanálu |
 | Zařízení | section | smart_tv, mobile, web_desktop, web_mobile, mobile_tablet, web_tablet | určení zařízení |
-| Typ reklamní pozice | area | preroll-1, preroll-7, midroll-1 | určení typu breaku / preroll-1 (6Os) / preroll-7 (tv break duration) / midroll-1 (120s, 75s)|
+| Typ reklamní pozice | area | preroll-1, preroll-7, midroll-1 | určení typu breaku / preroll-1 (60s) / preroll-7 (tv break duration) / midroll-1 (120s, 75s)|
 | Reklamní typ | size | kombinace - spot,preroll  / spot,midroll | fixni hodnota |
-| Délka breaku | duration | 30, 150, 135, 105, 90, dle délky tv breaku | fixní hodnota dle typu, při nahrazování simulcastu dle délky tv breaku |
+| Délka breaku | duration | 60, 120, 75, dle délky tv breaku | fixní hodnota dle typu, při nahrazování simulcastu dle délky tv breaku |
 | Validace na VAST 3 | format | validvast3 | fixní hodnota |
 | Nastavení formátu | formatmt | application%2Fxml | fixní hodnota |
 | Interní deklarace pro S2S | SUPERTAG | InstreamVideo | fixní hodnota |
@@ -99,8 +99,8 @@ Odpověď reklamního systému je VAST 4.2 s multi AdPods. Zpracování jednotli
 | Typ vysílání | broadcasting | livestream, startover, vosdalt3,ts47 | určení vysílacího modelu |
 | Clip id | clipid | - | interní párovací číslo média - rE37563 - dostupné v Prima api |
 | Product id | productid | - | unikátní výrobní číslo. Lomítka musí být nahrazena za pomlčku!  - dostupné v Prima api |
-| Souhlas | consent | tcstring base 64 | Operátor předá souhlas od uživatele dle TFC v2 - formát tcString |
-| Aktivace GDPR | gdpr | 1 / 0 | fixní hodnota | Pokud operátor není schopen předat souhlas, hodnota musí být 0. |
+| Souhlas | consent | tcstring base 64 | Operátor předá souhlas od uživatele dle TFC v2 - formát tcString. |
+| Aktivace GDPR | gdpr | 1 / 0 | fixní hodnota | V případě, kdy operátor není schopen předat souhlas musí být nastavena hodnota 0, aby byla zachována funkčnost liminace stejného spotu ve volání |
 
 
 
@@ -137,13 +137,18 @@ Zpracování reklamy na straně přehrávače musí být dle standardu iab VAST 
 | Zvuk | AAC, 48 kHz - bez uměle zesíleného zvuku (cca 16,5 dB) Zvukový mix musí respektovat doporučení EBU R128, zvuková úroveň pořadu musí být normalizovánana -23 LUFS v integračním módu měření, maximální povolená hodnota modulace je -1 dBTP |
 
 
+#### GDPR - předávání souhlasů (tcString)
+
+- Souhlas platný dle legislativy, získá operátor na svých zařízeních.
+- Seznam poskytovatelů CMP validovaných iAB - https://iabeurope.eu/cmp-list/ 
+- Kontrolu validního formátu lze provést https://www.consentstringdecoder.com/
 
 ## Příklady volání pozic
 
 ### TV zařízení VOSDAL-T3
 #### Preroll
 
-`https://a.iprima.cz/dserver/operator=Nazevoperatora/site=Nazevoperatora_KANAL/section=smart_tv/area=preroll-1/size=spot,preroll/duration=30/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=pocasi_rezerva,PC220112,22-311-00109-0112/showname=pocasi_rezerva/random=1234567890/viewid=1234567890/variant=varianta2/broadcasting=vosdalt3/clipid=PC220112/productid=22-311-00109-0112/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/gdpr=1/`
+`https://a.iprima.cz/dserver/operator=Nazevoperatora/site=Nazevoperatora_KANAL/section=smart_tv/area=preroll-1/size=spot,preroll/duration=60/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=pocasi_rezerva,PC220112,22-311-00109-0112/showname=pocasi_rezerva/random=1234567890/viewid=1234567890/variant=varianta2/broadcasting=vosdalt3/clipid=PC220112/productid=22-311-00109-0112/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/gdpr=1/`
 
 #### Midroll
 
@@ -157,7 +162,7 @@ Zpracování reklamy na straně přehrávače musí být dle standardu iab VAST 
 
 #### Midroll
 
-`https://a.iprima.cz/dserver/operator=Nazevoperatora/site=Nazevoperatora_KANAL/section=smart_tv/area=midroll-1/size=spot,midroll/duration=120/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=pocasi_rezerva,PC220112,22-311-00109-0112/showname=pocasi_rezerva/random=1234567890/viewid=1234567890/variant=varianta2/broadcasting=ts47/clipid=PC220112/productid=22-311-00109-0112/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/gdpr=1/`
+`https://a.iprima.cz/dserver/operator=Nazevoperatora/site=Nazevoperatora_KANAL/section=smart_tv/area=midroll-1/size=spot,midroll/duration=75/format=validvast3/formatmt=application%2Fxml/SUPERTAG=InstreamVideo/keyword=pocasi_rezerva,PC220112,22-311-00109-0112/showname=pocasi_rezerva/random=1234567890/viewid=1234567890/variant=varianta2/broadcasting=ts47/clipid=PC220112/productid=22-311-00109-0112/consent=CPRUH0OPRUH0OAHABBENB5CgAP_AAH_AAAAAHfoBpDxkBSFCAGJoYtkgAAAGxwAAICACABAAoAAAABoAIAQAAAAQAAAgBAAAABIAIAIAAABAGEAAAAAAQAAAAQAAAEAAAAAAIQIAAAAAAiBAAAAAAAAAAAAAAABAQAAAgAAAAAIAQAAAAAEAgAAAAAAAAAAABAAAAAgd1AoAAWABUAC4AHAAQAAyABoADmAIgAigBMACeAFUALgAXwAxAB-AEJAIgAiQBSgCxAGWAM2AdwB3gD9AIQARYAtIBdQDAgGsAOoAfIBIICbQFqALzAZIA0oBqYDugAAA.f_gAD_gAAAAA/gdpr=1/`
 
 
 ### Aplikace - Živé vysílání
