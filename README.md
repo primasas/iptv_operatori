@@ -69,7 +69,9 @@ The MID cookie supports HttpOnly and Secure flags
 
 Odpověď reklamního systému je VAST 4.2 s multi AdPods. Zpracování jednotlivých videospotu na straně přehrávače musí odpovídat minimálně tomuto standardu. 
 
+
 ------
+
 
 ## Seznam parametrů reklamního dotazu
 
@@ -99,12 +101,13 @@ Odpověď reklamního systému je VAST 4.2 s multi AdPods. Zpracování jednotli
 | Typ vysílání | broadcasting | livestream, startover, vosdalt3,ts47 | určení vysílacího modelu |
 | Clip id | clipid | - | interní párovací číslo média - rE37563 - dostupné v Prima api |
 | Product id | productid | - | unikátní výrobní číslo. Lomítka musí být nahrazena za pomlčku!  - dostupné v Prima api |
-| Souhlas | consent | tcstring base 64 | Operátor předá souhlas od uživatele dle TFC v2 - formát tcString. |
-| Aktivace GDPR | gdpr | 1 / 0 | fixní hodnota | V případě, kdy operátor není schopen předat souhlas musí být nastavena hodnota 0, aby byla zachována funkčnost liminace stejného spotu ve volání |
+| Souhlas | consent | tcstring base 64 | operátor předá souhlas od uživatele dle TFC v2 - formát tcString |
+| Aktivace GDPR | gdpr | 1 / 0 | fixní hodnota - V případě, kdy operátor není schopen předat souhlas musí být nastavena hodnota 0, aby byla zachována funkčnost liminace stejného spotu ve volání |
 
 
 
 #### Seznam názvů kanálu pro parametr site
+
 
 Duležité! - Kombinace názvů musí být předem definovány v reklamním systému. Nastavení použivaných názvů bude po dohodě s FTV Prima.
 
