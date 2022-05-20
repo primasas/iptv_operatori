@@ -85,7 +85,7 @@ Odpověď reklamního systému je VAST 4.2 s multi AdPods. Zpracování jednotli
 | Název operátora | operator | Nazevoperatora | predefinovaný, alfanumeric |
 | Kanál | site | Nazevoperatora_KANAL | predefinovaný, složený z názvu operátora a názvu kanálu |
 | Zařízení | section | smart_tv, mobile, web_desktop, web_mobile, mobile_tablet, web_tablet | určení zařízení |
-| Typ reklamní pozice | area | preroll-1, midroll-7, midroll-1 | určení typu breaku / preroll-1 (60s) / midroll-7 (tv break duration) / midroll-1 (120s, 75s)|
+| Typ reklamní pozice | area | preroll-1, midroll-1, midroll-7 | určení typu breaku / preroll-1 (60s) / midroll-1 (120s, 75s) / midroll-7 (tv break duration)|
 | Reklamní typ | size | kombinace - spot,preroll  / spot,midroll | fixni hodnota |
 | Délka breaku | duration | 60, 120, 75, dle délky tv breaku | fixní hodnota dle typu, při nahrazování simulcastu dle délky tv breaku |
 | Validace na VAST 3 | format | validvast3 | fixní hodnota |
